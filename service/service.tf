@@ -103,7 +103,7 @@ resource "aws_autoscaling_group" "main" {
 
   tag {
     key                 = "CNAME"
-    value               = "vpn"
+    value               = "${var.cname}"
     propagate_at_launch = true
   }
 
