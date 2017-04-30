@@ -48,7 +48,7 @@ provider "aws" {
   profile = "private"
 }
 
-# --------------- SERIVCE USER DATA --------------- #
+# --------------- SERVICE USER DATA --------------- #
 
 data "template_file" "user_data" {
     template = <<-EOF
@@ -61,7 +61,7 @@ echo "Hello World!"
 
 # --------------- SERVICE --------------- #
 
-module "openvpn" {
+module "service" {
   source             = "./service"
   ami_id             = "${var.ami_id}"
   availability_zones = "${var.availability_zones}"
