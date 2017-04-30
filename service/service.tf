@@ -173,6 +173,18 @@ resource "aws_iam_role_policy" "lambda_ha_role_policy" {
       ],
       "Resource": "arn:aws:route53:::hostedzone/${var.zone_id}",
       "Effect": "Allow"
+    },
+    {
+      "Sid": "LambdaLoggingAccess",
+      "Action": [
+        "logs:CreateLogGroup",
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Resource": [
+        "arn:aws:logs:*:*:*"
+      ],
+      "Effect": "Allow"
     }
   ]
 }

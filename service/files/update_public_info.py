@@ -6,6 +6,10 @@ _ASG_LAUNCH_EVENT = 'EC2 Instance Launch Successful'
 _CNAME = 'CNAME'
 
 
+logger = logging.getLogger()
+logger.setLevel(logging.INFO)
+
+
 def handler(event=None, context=None):
     """
     Event handler for AWS Lambda.
@@ -43,5 +47,5 @@ def update_dns(instance_id, zone_id, region='eu-west-1'):
         logging.error("No %s tag found.".format(_CNAME))
         return False
 
-    status = aws.update_dns_record(name=names[0], value=instance['PublicDnsName'], zone_id=zone_id)
+    status = aws.update_dns_record(name=names[0], value=instance['PublicIpAddress'], zone_id=zone_id)
     logging.info('Status of updating DNS entry was {}'.format('successful' if status else 'unsuccessful'))

@@ -14,7 +14,7 @@ def get_instance_data(instance_id, region='eu-west-1'):
     return ec2.describe_instances(InstanceIds=[instance_id])['Reservations'][0]['Instances'][0]
 
 
-def update_dns_record(name, value, zone_id, action='update', type='CNAME', ttl=30, comment=''):
+def update_dns_record(name, value, zone_id, action='update', rtype='A', ttl=30, comment=''):
     """
     Updates Route53 dns record. Allowed actions are: create, delete, update.
     :param name:
@@ -47,7 +47,7 @@ def update_dns_record(name, value, zone_id, action='update', type='CNAME', ttl=3
                 'Action': action_translated,
                 'ResourceRecordSet': {
                     'Name': name,
-                    'Type': type,
+                    'Type': rtype,
                     'TTL': ttl,
                     'ResourceRecords': [
                         {
