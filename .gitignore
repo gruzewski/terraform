@@ -1,0 +1,15 @@
+# dotenv
+.env
+
+# Compiled files
+*.tfplan
+*.tfstate
+*.tfstate.backup
+*.pyc
+service/output
+
+# Module directory
+.terraform/
+
+# IDE
+.idea
