@@ -21,7 +21,7 @@ def update_dns_record(name, value, zone_id, action='update', rtype='A', ttl=30, 
     :param value:
     :param zone_id:
     :param action:
-    :param type:
+    :param rtype:
     :param ttl:
     :param comment:
     :return: boolean
