@@ -238,7 +238,7 @@ resource "null_resource" "prepare-lambda" {
   }
 
   provisioner "local-exec" {
-    command = "mkdir ${path.module}/output || true"
+    command = "mkdir ${path.module}/output"
   }
 
   provisioner "local-exec" {
